@@ -11,9 +11,12 @@ type Celcius float64
 type Fahrenheit float64
 
 const (
+	// AbsoluteZeroC is absolute 0 in Celcius
 	AbsoluteZeroC Celcius = -273.15
-	FreezingC     Celcius = 0
-	BoilingC      Celcius = 100
+	// FreezingC is freezing temperature in Celcius
+	FreezingC Celcius = 0
+	//BoilingC is boiling temperature in Celcius
+	BoilingC Celcius = 100
 )
 
 // CToF converts Celcius to Fahrenheit
