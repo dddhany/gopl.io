@@ -15,6 +15,6 @@ func anagram(s string) bool {
 }
 
 func main() {
-	fmt.Printf("%b\n", anagram("abcdcba"))
-	fmt.Printf("%b\n", anagram("abcdecba"))
+	fmt.Printf("%v\n", anagram("abcdcba"))
+	fmt.Printf("%v\n", anagram("abcdecba"))
 }
