@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func anagram(s string) bool {
 	runes := []rune(s)
