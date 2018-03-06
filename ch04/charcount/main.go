@@ -11,6 +11,7 @@ import (
 
 func main() {
 	counts := make(map[rune]int) //counts of Unicode characters
+	rangeCounts := make(map[*unicode.RangeTable]int)
 	var utflen [utf8.UTFMax + 1]int
 	invalid := 0
 
@@ -28,6 +29,18 @@ func main() {
 			invalid++
 			continue
 		}
+		if unicode.IsDigit(r) {
+			rangeCounts[unicode.Number]++
+		}
+		if unicode.IsLetter(r) {
+			rangeCounts[unicode.Letter]++
+		}
+		if unicode.IsSpace(r) {
+			rangeCounts[unicode.Space]++
+		}
+		if unicode.IsPunct(r) {
+			rangeCounts[unicode.Punct]++
+		}
 		counts[r]++
 		utflen[n]++
 	}
@@ -44,4 +57,9 @@ func main() {
 	if invalid > 0 {
 		fmt.Printf("\n%d invalid UTF-8 characters\n", invalid)
 	}
+	fmt.Print("\nRange Table Count\n")
+	fmt.Printf("number: %d\n", rangeCounts[unicode.Number])
+	fmt.Printf("letter: %d\n", rangeCounts[unicode.Letter])
+	fmt.Printf("space: %d\n", rangeCounts[unicode.Space])
+	fmt.Printf("punct: %d\n", rangeCounts[unicode.Punct])
 }
